@@ -8,7 +8,7 @@ public class DBconnect {
 	public DBconnect(){
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost/test","root","password");
+			con=DriverManager.getConnection("jdbc:mysql://localhost/database_name","user","password");
 			st=con.createStatement();
 			getData();
 		}catch(Exception e){
@@ -18,7 +18,7 @@ public class DBconnect {
 	}
 	
 	public void getData() throws Exception{
-		String query="select * from test1";
+		String query="select * from table_name";
 		rs=st.executeQuery(query);
 		System.out.println("records from db:");
 		while(rs.next()){
